@@ -38,7 +38,7 @@ exports.login = (req, res, next) => {
                     userId: user._id,
                     token: jwt.sign(
                         { userId: user._id }, // payload (données encodées dans token)
-                        'ZUCKERBERG_IS_A_FRAUD',
+                        process.env.ZUCKERBERG_IS_A_FRAUD,
                         { expiresIn: '2h' }
                     )
                 });
