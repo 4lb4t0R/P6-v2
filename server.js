@@ -1,7 +1,7 @@
 
 // Importe package HTTP de Node pour créer serveur, qui recevra des  requêtes et réponses à chaque appel de fonction
 const http = require('http');
-const app = require('./app');
+const app = require('./backend/app');
 
 // renvoie un port valide
 const normalizePort = val => {
