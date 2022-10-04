@@ -56,12 +56,6 @@ app.use('/api/sauces', sauceRoutes);
 // Utilisateurs
 app.use('/api/auth', userRoutes); 
 // Images
-app.use('./backend/assets/images', express.static(path.join(__dirname, './backend/assets/images'))); 
-
-// Ping serveur OK
-app.use((req, res, next) => {
-  res.status(200).json({ message: 'Hi handsome ETALON DES BOIS (X_x)' }); 
-  next();
-});
+app.use('/images', express.static(path.join(__dirname, 'images'))); 
 
 module.exports = app;

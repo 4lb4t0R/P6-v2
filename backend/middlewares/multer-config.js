@@ -11,7 +11,7 @@ const MIME_TYPES = {
 // Sert à indiquer lieu de save des img reçues
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, './backend/assets/images');
+    callback(null, 'images');
   },
   // Garde nom d'origine mais lui rajoute un _ et la date d'upload
   filename: (req, file, callback) => {
