@@ -56,7 +56,7 @@ app.use('/api/sauces', sauceRoutes);
 // Utilisateurs
 app.use('/api/auth', userRoutes); 
 // Images
-app.use('./assets/images', express.static(path.join(__dirname, './assets/images'))); 
+app.use('./backend/assets/images', express.static(path.join(__dirname, './backend/assets/images'))); 
 
 // Ping serveur OK
 app.use((req, res, next) => {
