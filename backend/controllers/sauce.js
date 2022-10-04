@@ -1,4 +1,3 @@
-
 const Sauce = require('../models/sauce');// Importation du model mongoose
 const fs = require('fs');// Importation de package fs file system
 
@@ -138,7 +137,7 @@ switch(req.body.like){
           .catch(error => { res.status(400).json( { error })});
         }
         break;
-        
+
       }   
     })
     .catch(error => { res.status(400).json( { error })});

@@ -8,7 +8,7 @@ const router = express.Router();
 const auth = require('../middlewares/auth');
 
 // Implémente multer
-const multer = require('../middleware/multer-config');
+const multer = require('../middlewares/multer-config');
 
 // Implémente modele de sauce fabriqué
 const Sauce = require('../models/sauce');

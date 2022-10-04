@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken');
- 
+
 // Extraction du token + décodage + extrait ID et le rend exploitable par les routes
 module.exports = (req, res, next) => {
    try {
        const token = req.headers.authorization.split(' ')[1];
-       const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+       const decodedToken = jwt.verify(token, process.env.ZUCKERBERG_IS_A_FRAUD);
        const userId = decodedToken.userId;
        if (req.body.userId && req.body.userId != userId){ // Verif si userId du token et userId de la requête correspondent
         throw 'User ID invalide !';

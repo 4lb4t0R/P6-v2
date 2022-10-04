@@ -3,13 +3,18 @@ const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 
+/* Créa de l'appli + appel d'Express ; 
+   prend all request qui ont pour Content application/json et met leur body dans l'objet req
+*/
+const app = express();
+
 // Implémentation des variables d'environnement
 require('dotenv').config();
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
 
 // Connexion Cluster MongoDB(Z)
-mongoose.connect('mongodb+srv://'+dbUser+':'+dbPassword+'@cluster0.abn4yrw.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.rfhpjnn.mongodb.net/?retryWrites=true&w=majority`,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
@@ -27,18 +32,15 @@ app.use((req, res, next) => {
 });
 
 // Importation de la route sauce
-const sauceRoutes = require('./backend/routes/sauce'); 
+const sauceRoutes = require('./routes/sauce'); 
 // Importation du model de sauce
-const Sauce = require('./backend/models/sauce'); 
+const Sauce = require('./models/sauce'); 
 // Importation du router user
-const userRoutes = require('./backend/routes/user'); 
+const userRoutes = require('./routes/user'); 
 // Accès au path du server, pour les images (dans dossier assets)
 const path = require('path'); 
 
-/* Créa de l'appli + appel d'Express ; 
-   prend all request qui ont pour Content application/json et met leur body dans l'objet req
-*/
-const app = express();
+
 
 // accès à req.body
 app.use(express.json());
@@ -54,7 +56,7 @@ app.use('/api/sauces', sauceRoutes);
 // Utilisateurs
 app.use('/api/auth', userRoutes); 
 // Images
-app.use('/images', express.static(path.join(__dirname, 'assets/images'))); 
+app.use('./assets/images', express.static(path.join(__dirname, './assets/images'))); 
 
 // Ping serveur OK
 app.use((req, res, next) => {

@@ -8,7 +8,7 @@ const router = express.Router();
 const userCtrl = require('../controllers/user');
 
 // Implémente le valideur de mdp
-const password = require('../middleware/password');
+const password = require('../middlewares/password');
 
 // Créa de la route s'enregistrer + se connecter
 router.post ('/signup', password, userCtrl.signup);
