@@ -25,7 +25,7 @@ router.put('/:id', auth, multer, sauceCtrl.modifySauce);
 // Suppression d'une sauce
 router.delete('/:id', auth, sauceCtrl.deleteSauce); 
 // Affichage de toutes les sauces
-router.get('/' + '', auth, sauceCtrl.getAllSauces); 
+router.get('/', auth, sauceCtrl.getAllSauces); 
 // Like / Dislike
 router.post('/:id/like', auth, sauceCtrl.likeSauce); 
 
